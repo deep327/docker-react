@@ -1,0 +1,10 @@
+language: generic
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t deeplsi/docker-react -f Dockerfile.dev .
+
+scripts:
+  - docker run deepls/docker-react npm run test -- --coverage
